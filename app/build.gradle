@@ -6,6 +6,11 @@ android {
     namespace 'com.example.palestinesport'
     compileSdk 33
 
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
     defaultConfig {
         applicationId "com.example.palestinesport"
         minSdk 24

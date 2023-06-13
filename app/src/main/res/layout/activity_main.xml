@@ -27,7 +27,7 @@
         app:srcCompat="@drawable/logo" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_reservation"
+        android:id="@+id/playgroundReservation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="45dp"
@@ -35,19 +35,18 @@
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" >
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:background="@drawable/card_main"
-
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/card_main">
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
-                android:layout_margin="15dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -57,10 +56,10 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="22dp"
                 android:text="حجز ملعب"
                 android:textColor="@color/white"
                 android:textSize="33sp"
-                android:layout_margin="22dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -70,6 +69,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/domesticLeague"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="45dp"
@@ -78,18 +78,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_reservation" >
+        app:layout_constraintTop_toBottomOf="@+id/playgroundReservation">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:background="@drawable/card_main"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@drawable/card_main">
 
             <ImageView
                 android:id="@+id/image_trak"
                 android:layout_width="wrap_content"
-                android:layout_margin="15dp"
                 android:layout_height="wrap_content"
+                android:layout_margin="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -99,9 +99,9 @@
                 android:id="@+id/tv_trak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="22dp"
                 android:text="متابعة الدوري المحلي"
                 android:textColor="@color/white"
-                android:layout_margin="22dp"
                 android:textSize="33sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
