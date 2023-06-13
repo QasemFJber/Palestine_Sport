@@ -40,6 +40,7 @@
         android:layout_width="@dimen/_30sdp"
         android:layout_height="@dimen/_30sdp"
         android:src="@drawable/track"
+
         app:layout_constraintBottom_toBottomOf="@+id/btn_heart"
         app:layout_constraintEnd_toEndOf="@+id/btn_location"
          />
