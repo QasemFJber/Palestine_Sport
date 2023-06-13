@@ -24,5 +24,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.domesticLeague.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(getApplicationContext(),));
+            }
+        });
+
     }
 }
