@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#0D1724"
-    tools:context=".screens.DatasActivity">
+    tools:context=".MatchScheduleActivity">
 
     <ImageView
         android:layout_width="0dp"
@@ -36,24 +36,22 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/_20sdp"
             app:layout_constraintEnd_toEndOf="parent"
-
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_logo_app" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:text="Stadium data"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_20ssp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/pager_Match"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_weight="2"
             android:layout_marginStart="@dimen/_30sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_30sdp"
@@ -61,8 +59,6 @@
 
 
     </LinearLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

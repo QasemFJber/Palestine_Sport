@@ -17,6 +17,12 @@
             android:name=".screens.PlaygroundReservationActivity"
             android:exported="false" />
         <activity
+            android:name=".MatchDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MatchScheduleActivity"
+            android:exported="false" />
+        <activity
             android:name=".screens.DatasActivity"
             android:exported="false" />
         <activity
