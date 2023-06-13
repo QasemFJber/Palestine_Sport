@@ -14,9 +14,11 @@
         android:theme="@style/Theme.PalestineSport"
         tools:targetApi="31">
         <activity
+            android:name=".screens.DatasActivity"
+            android:exported="false" />
+        <activity
             android:name=".screens.SplashScreen"
-            android:exported="true" >
-
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,8 +27,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
