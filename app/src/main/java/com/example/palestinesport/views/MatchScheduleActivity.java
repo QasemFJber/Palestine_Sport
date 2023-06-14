@@ -1,8 +1,10 @@
-package com.example.palestinesport;
+package com.example.palestinesport.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.palestinesport.R;
 
 public class MatchScheduleActivity extends AppCompatActivity {
 
