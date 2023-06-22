@@ -32,7 +32,6 @@
             android:background="@color/white"
             android:elevation="@dimen/_150sdp"
             android:hint="البحث"
-
             android:inputType="text"
             android:paddingStart="@dimen/_10sdp" />
     </androidx.cardview.widget.CardView>
@@ -65,5 +64,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/locations"
         app:layout_constraintEnd_toStartOf="@+id/locations"
         app:layout_constraintTop_toTopOf="@+id/locations" />
+
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/locations" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

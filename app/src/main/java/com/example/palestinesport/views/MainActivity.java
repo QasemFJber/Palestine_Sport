@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         binding.btnDomesticLeague.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(), ));
+                startActivity(new Intent(getApplicationContext(), MatchDataActivity.class));
             }
         });
 
