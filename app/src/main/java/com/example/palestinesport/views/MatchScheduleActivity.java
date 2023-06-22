@@ -1,14 +1,16 @@
-package com.example.palestinesport;
+package com.example.palestinesport.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MatchDataActivity extends AppCompatActivity {
+import com.example.palestinesport.R;
+
+public class MatchScheduleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_match_data);
+        setContentView(R.layout.activity_match_schedule);
     }
 }

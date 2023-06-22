@@ -1,4 +1,4 @@
-package com.example.palestinesport.screens;
+package com.example.palestinesport.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 

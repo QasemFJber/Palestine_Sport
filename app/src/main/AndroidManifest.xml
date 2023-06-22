@@ -14,19 +14,19 @@
         android:theme="@style/Theme.PalestineSport"
         tools:targetApi="31">
         <activity
-            android:name=".screens.PlaygroundReservationActivity"
+            android:name=".views.PlaygroundReservationActivity"
             android:exported="false" />
         <activity
-            android:name=".MatchDataActivity"
+            android:name=".views.MatchDataActivity"
             android:exported="false" />
         <activity
-            android:name=".MatchScheduleActivity"
+            android:name=".views.MatchScheduleActivity"
             android:exported="false" />
         <activity
-            android:name=".screens.DatasActivity"
+            android:name=".views.DatasActivity"
             android:exported="false" />
         <activity
-            android:name=".screens.SplashScreen"
+            android:name=".views.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:exported="true" />
     </application>
 

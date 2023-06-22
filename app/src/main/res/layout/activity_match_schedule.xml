@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#0D1724"
-    tools:context=".MatchScheduleActivity">
+    tools:context=".views.MatchScheduleActivity">
 
     <ImageView
         android:layout_width="0dp"
