@@ -17,17 +17,17 @@ public class MainActivity extends AppCompatActivity {
         binding =ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        binding.playgroundReservation.setOnClickListener(new View.OnClickListener() {
+        binding.btnPlaygroundReservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), PlaygroundReservationActivity.class));
             }
         });
 
-        binding.domesticLeague.setOnClickListener(new View.OnClickListener() {
+        binding.btnDomesticLeague.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(getApplicationContext(),));
+//                startActivity(new Intent(getApplicationContext(), ));
             }
         });
 

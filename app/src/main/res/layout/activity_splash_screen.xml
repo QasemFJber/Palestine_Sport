@@ -13,7 +13,7 @@
         style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/image_splash"
+        android:src="@drawable/image_app"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,49 +22,28 @@
 
     </ImageView>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="@dimen/_250sdp"
-        android:layout_height="@dimen/_280sdp"
-        android:layout_marginTop="@dimen/_80sdp"
-        android:src="@drawable/view_palestine_splash"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ImageView>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="المجلس الأعلى للشباب والرياضة"
-        android:textStyle="bold"
-        android:textSize="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_70sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        android:text="Palestine Sport"
+        android:textSize="@dimen/_22sdp"
+        android:textStyle="bold"
+        android:textColor="#C900FF00"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_marginTop="@dimen/_30sdp"
-        android:src="@drawable/logo_splash"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2023 م"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_7sdp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:layout_width="@dimen/_190sdp"
+        android:layout_height="@dimen/_190sdp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="@dimen/_90sdp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

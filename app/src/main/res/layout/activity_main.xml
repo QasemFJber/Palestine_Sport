@@ -21,96 +21,80 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_80sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_reservation"
+    <ImageView
+        android:id="@+id/btn_playgroundReservation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="45dp"
-        app:cardCornerRadius="33dp"
-        app:cardElevation="10dp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:src="@drawable/card_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" >
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/playgroundReservation"
-            android:layout_width="match_parent"
-            android:background="@drawable/card_main"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="wrap_content"
-                android:layout_margin="15dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/rr" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="حجز ملعب"
-                android:textColor="@color/white"
-                android:textSize="33sp"
-                android:layout_margin="22dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/domesticLeague"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="45dp"
-        app:cardCornerRadius="33dp"
-        app:cardElevation="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.59"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_reservation" >
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:src="@drawable/placeholder"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_playgroundReservation"
+        app:layout_constraintEnd_toEndOf="@+id/btn_playgroundReservation"
+        app:layout_constraintTop_toTopOf="@+id/btn_playgroundReservation" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:background="@drawable/card_main"
-            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="حجز ملعب"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/btn_playgroundReservation"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
-            <ImageView
-                android:id="@+id/image_trak"
-                android:layout_width="wrap_content"
-                android:layout_margin="15dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/tt" />
 
-            <TextView
-                android:id="@+id/tv_trak"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="متابعة الدوري المحلي"
-                android:textColor="@color/white"
-                android:layout_margin="22dp"
-                android:textSize="33sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_trak" />
+    <ImageView
+        android:id="@+id/btn_domesticLeague"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:src="@drawable/card_main"
+        app:layout_constraintEnd_toEndOf="@+id/btn_playgroundReservation"
+        app:layout_constraintStart_toStartOf="@+id/btn_playgroundReservation"
+        app:layout_constraintTop_toBottomOf="@+id/btn_playgroundReservation" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:src="@drawable/live_sports"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_domesticLeague"
+        app:layout_constraintEnd_toEndOf="@+id/btn_domesticLeague"
+        app:layout_constraintTop_toTopOf="@+id/btn_domesticLeague" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="متابعة الدوري المحلي"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20ssp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/btn_domesticLeague"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
