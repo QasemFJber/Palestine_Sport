@@ -42,9 +42,76 @@
 
 
         <com.google.android.material.tabs.TabLayout
-            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/tab_day"
+            android:layout_marginTop="@dimen/_20sdp"
             android:layout_width="match_parent"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/white"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabMode="fixed"
+            app:tabGravity="fill"
+            app:tabIndicatorGravity="stretch"
+            android:background="@android:color/transparent"
+            app:tabIndicator="@drawable/tab_indicator"
             android:layout_height="wrap_content"/>
+
+        <!--<ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="السبت" />
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="الاحد" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="الاثنين" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="الثلاثاء" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="الاربعاء" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/shadow_backCard"
+                    android:text="الخميس" />
+            </LinearLayout>
+        </ScrollView>-->
+
+
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/pager_Match"
@@ -52,10 +119,10 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
-            android:layout_marginBottom="@dimen/_20sdp" />
+            android:layout_marginEnd="@dimen/_5sdp"
+             />
 
 
     </LinearLayout>
