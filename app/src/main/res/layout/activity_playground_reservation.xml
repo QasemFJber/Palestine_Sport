@@ -66,10 +66,11 @@
         app:layout_constraintTop_toTopOf="@+id/locations" />
 
 
-    <com.google.android.gms.maps.MapView
+    <fragment
         android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_marginTop="@dimen/_10sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

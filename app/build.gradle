@@ -50,4 +50,8 @@ dependencies {
     // Tomtom Map
 //    implementation 'com.tomtom.online:sdk-maps:2.1.2'
 
+    // Google map
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+
+
 }
