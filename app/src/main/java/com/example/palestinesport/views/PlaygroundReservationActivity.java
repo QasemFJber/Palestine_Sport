@@ -45,7 +45,6 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
-            this.myGoogleMap = googleMap;
 
         this.myGoogleMap = googleMap;
         uiSettings = googleMap.getUiSettings();
@@ -53,9 +52,10 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 
         // Add zoom controls
         uiSettings.setZoomControlsEnabled(true);
-
         LatLng gaza = new LatLng(31.515573507377145, 34.44048516931093);
+        LatLng gaza1 = new LatLng(31.514996501771567, 34.45605590401581);
         myGoogleMap.addMarker(new MarkerOptions().position(gaza).title("Gaza"));
+        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title("Yarmouk Stadium"));
         myGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(gaza));
 
         myGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
