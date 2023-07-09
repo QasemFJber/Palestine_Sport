@@ -9,10 +9,14 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.palestinesport.R;
+import com.example.palestinesport.api.controller.PlaygoundController;
 import com.example.palestinesport.databinding.ActivityPlaygroundReservationBinding;
+import com.example.palestinesport.interfaces.ListCallback;
+import com.example.palestinesport.models.Playgound;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -23,6 +27,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class PlaygroundReservationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -30,6 +37,9 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 
     private GoogleMap myGoogleMap;
     private UiSettings uiSettings;
+
+    List<Playgound> playgoundList = new ArrayList<>();
+
 
     ActivityPlaygroundReservationBinding binding;
     @Override
@@ -95,6 +105,35 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
                 Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+
+    private void getAllPlatgrounds(){
+        PlaygoundController controller = new PlaygoundController();
+
+        controller.getPaygound(new ListCallback<Playgound>() {
+            @Override
+            public void onSuccess(List<Playgound> list) {
+                // Log.d("TAGAA", "onSuccess: "+list);
+                playgoundList.addAll(list);
+
+
+                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).playgoundName);
+                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).coordinatorName);
+                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).coordinatorPhone);
+                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).playgoundType);
+                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).latitude);
+                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).longitude);
+                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).playgoundAddress);
+                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).workHoure);
+                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).hourePrice);
+            }
+
+            @Override
+            public void onFailure(String message) {
+
+            }
+        });
     }
 
 }
