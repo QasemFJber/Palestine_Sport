@@ -37,16 +37,20 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 
     private GoogleMap myGoogleMap;
     private UiSettings uiSettings;
-
+    String lt;
+    String lo;
+    LatLng gaza1;
     List<Playgound> playgoundList = new ArrayList<>();
-
+    PlaygoundController controller = new PlaygoundController();
 
     ActivityPlaygroundReservationBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityPlaygroundReservationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
         SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_view);
         supportMapFragment.getMapAsync(this);
@@ -60,13 +64,40 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
         uiSettings = googleMap.getUiSettings();
         // Customize your map options and add markers or other functionalities here
 
+
         // Add zoom controls
         uiSettings.setZoomControlsEnabled(true);
-        LatLng gaza = new LatLng(31.515573507377145, 34.44048516931093);
-        LatLng gaza1 = new LatLng(31.514996501771567, 34.45605590401581);
-        myGoogleMap.addMarker(new MarkerOptions().position(gaza).title("Gaza"));
-        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title("Yarmouk Stadium"));
-        myGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(gaza));
+//        LatLng gaza = new LatLng(31.515573507377145, 34.44048516931093);
+
+
+            controller.getPaygound(new ListCallback<Playgound>() {
+                @Override
+                public void onSuccess(List<Playgound> list) {
+                    // Log.d("TAGAA", "onSuccess: "+list);
+                    playgoundList.addAll(list);
+
+                    for (int i = 0; 0 < playgoundList.size(); i++) {
+                        lo = playgoundList.get(i).longitude;
+                        lt = playgoundList.get(i).latitude;
+                        Log.d("aaa", "onMapReady:"+lt);
+                        gaza1 = new LatLng(Integer.parseInt(lt), Integer.parseInt(lo));
+                        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title(playgoundList.get(i).playgoundName));
+                        myGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(gaza1));
+                    }
+
+                }
+
+                @Override
+                public void onFailure(String message) {
+
+                }
+            });
+
+
+
+            myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gaza1, 11));
+
+//        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title("Yarmouk Stadium"));
 
         myGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
@@ -77,7 +108,6 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
             }
         });
 
-        myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gaza, 11));
 
         // Request location permission if not granted
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -108,32 +138,8 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
     }
 
 
-    private void getAllPlatgrounds(){
-        PlaygoundController controller = new PlaygoundController();
+    private void getAllPlatgrounds() {
 
-        controller.getPaygound(new ListCallback<Playgound>() {
-            @Override
-            public void onSuccess(List<Playgound> list) {
-                // Log.d("TAGAA", "onSuccess: "+list);
-                playgoundList.addAll(list);
-
-
-                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).playgoundName);
-                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).coordinatorName);
-                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).coordinatorPhone);
-                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).playgoundType);
-                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).latitude);
-                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).longitude);
-                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).playgoundAddress);
-                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).workHoure);
-                Log.d("TAGAA", "onSuccess: "+playgoundList.get(1).hourePrice);
-            }
-
-            @Override
-            public void onFailure(String message) {
-
-            }
-        });
     }
 
 }
