@@ -20,7 +20,7 @@ public interface RetrofitRequests {
 
     @Multipart
     @POST("getPlaygroundDetail")
-    Call<BaseResponse<Playgound>> getPlaygroundDetail(@Field("playground_id") int playground_id);
+    Call<BaseResponse<Playgound>> getPlaygroundDetail(@Field("playground_id") String playground_id);
 
 
     @POST("getAllMatches")
@@ -28,7 +28,7 @@ public interface RetrofitRequests {
 
     @Multipart
     @POST("getMatchDetail")
-    Call<BaseResponse<Matchas>> getMatchDetail(@Field("match_id") int match_id);
+    Call<BaseResponse<Matchas>> getMatchDetail(@Field("match_id") String match_id);
 
 
 
