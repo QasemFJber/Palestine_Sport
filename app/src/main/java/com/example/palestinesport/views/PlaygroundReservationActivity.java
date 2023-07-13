@@ -70,7 +70,7 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 //        LatLng gaza = new LatLng(31.515573507377145, 34.44048516931093);
 
 
-            controller.getPaygound(new ListCallback<Playgound>() {
+            controller.getPlayGround(new ListCallback<Playgound>() {
                 @Override
                 public void onSuccess(List<Playgound> list) {
                     // Log.d("TAGAA", "onSuccess: "+list);
@@ -138,7 +138,7 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
     }
 
 
-    private void getAllPlatgrounds() {
+    private void getAllPlayGrounds() {
 
     }
 

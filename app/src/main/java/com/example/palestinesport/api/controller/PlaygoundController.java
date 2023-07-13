@@ -13,7 +13,7 @@ import retrofit2.Response;
 public class PlaygoundController {
 
 
-    public void getPaygound(ListCallback<Playgound> callback){
+    public void getPlayGround(ListCallback<Playgound> callback){
         Call<BaseResponse<Playgound>> call=ApiController.getInstance().getRetrofitRequests().getAllplaygrounds();
 
         call.enqueue(new Callback<BaseResponse<Playgound>>() {
