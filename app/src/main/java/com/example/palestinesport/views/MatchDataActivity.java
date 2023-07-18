@@ -16,7 +16,5 @@ public class MatchDataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMatchDataBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-
     }
 }

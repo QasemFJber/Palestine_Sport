@@ -13,7 +13,7 @@ import retrofit2.Response;
 public class PlaygoundController {
 
 
-    public void getPaygound(ListCallback<Playgound> callback){
+    public void getPlayGround(ListCallback<Playgound> callback){
         Call<BaseResponse<Playgound>> call=ApiController.getInstance().getRetrofitRequests().getAllplaygrounds();
 
         call.enqueue(new Callback<BaseResponse<Playgound>>() {
@@ -33,6 +33,28 @@ public class PlaygoundController {
             }
         });
 
+    }
+
+
+    public void getPlaygroundDetail(String playground_id,ListCallback<Playgound> callback){
+        Call<BaseResponse<Playgound>> call = ApiController.getInstance().getRetrofitRequests().getPlaygroundDetail(playground_id);
+
+        call.enqueue(new Callback<BaseResponse<Playgound>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<Playgound>> call, Response<BaseResponse<Playgound>> response) {
+                if (response.isSuccessful()){
+                    callback.onSuccess(response.body().data);
+                }else {
+                    callback.onFailure("No Data");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<Playgound>> call, Throwable t) {
+                callback.onFailure("");
+
+            }
+        });
     }
 
 
