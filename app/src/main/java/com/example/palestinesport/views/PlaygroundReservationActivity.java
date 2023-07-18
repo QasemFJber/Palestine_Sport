@@ -70,36 +70,43 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 //        LatLng gaza = new LatLng(31.515573507377145, 34.44048516931093);
 
 
-            controller.getPaygound(new ListCallback<Playgound>() {
-                @Override
-                public void onSuccess(List<Playgound> list) {
-                    // Log.d("TAGAA", "onSuccess: "+list);
-                    playgoundList.addAll(list);
+        controller.getPlayGround(new ListCallback<Playgound>() {
+            @Override
+            public void onSuccess(List<Playgound> list) {
+                // Log.d("TAGAA", "onSuccess: "+list);
+                playgoundList.addAll(list);
 
-                    for (int i = 0; 0 < playgoundList.size(); i++) {
-                        lo = playgoundList.get(i).longitude;
-                        lt = playgoundList.get(i).latitude;
-                        Log.d("aaa", "onMapReady:"+lt);
-                        gaza1 = new LatLng(Integer.parseInt(lt), Integer.parseInt(lo));
-                        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title(playgoundList.get(i).playgoundName));
-                        myGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(gaza1));
-                    }
-
+                for (int i = 0; 0 < playgoundList.size(); i++) {
+                    lo = playgoundList.get(i).longitude;
+                    lt = playgoundList.get(i).latitude;
+                    Log.d("aaa", "onMapReady:" + lt);
+                    gaza1 = new LatLng(Integer.parseInt(lt), Integer.parseInt(lo));
+                    myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title(playgoundList.get(i).playgoundName));
+                    myGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(gaza1));
                 }
 
-                @Override
-                public void onFailure(String message) {
+            }
 
-                }
-            });
+            @Override
+            public void onFailure(String message) {
+                Toast.makeText(PlaygroundReservationActivity.this, "No Internet connection!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
+        if (gaza1 != null) {
 
             myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gaza1, 11));
+        }
+        if (gaza1 == null){
+            LatLng latLng = new LatLng(31.515573507377145,34.44048516931093);
+            myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
+        }
 
 //        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title("Yarmouk Stadium"));
 
         myGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
 
