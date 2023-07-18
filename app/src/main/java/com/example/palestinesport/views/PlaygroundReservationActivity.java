@@ -8,8 +8,10 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.LocationRequest;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.palestinesport.R;
@@ -17,6 +19,7 @@ import com.example.palestinesport.api.controller.PlaygoundController;
 import com.example.palestinesport.databinding.ActivityPlaygroundReservationBinding;
 import com.example.palestinesport.interfaces.ListCallback;
 import com.example.palestinesport.models.Playgound;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -40,10 +43,13 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
     String lt;
     String lo;
     LatLng gaza1;
+    Marker marker;
+    int id;
     List<Playgound> playgoundList = new ArrayList<>();
     PlaygoundController controller = new PlaygoundController();
 
     ActivityPlaygroundReservationBinding binding;
+    List<Marker> markers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,43 +76,79 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 //        LatLng gaza = new LatLng(31.515573507377145, 34.44048516931093);
 
 
-            controller.getPaygound(new ListCallback<Playgound>() {
-                @Override
-                public void onSuccess(List<Playgound> list) {
-                    // Log.d("TAGAA", "onSuccess: "+list);
-                    playgoundList.addAll(list);
+        controller.getPaygound(new ListCallback<Playgound>() {
+            @Override
+            public void onSuccess(List<Playgound> list) {
+                // Log.d("TAGAA", "onSuccess: "+list);
+                playgoundList.addAll(list);
 
-                    for (int i = 0; 0 < playgoundList.size(); i++) {
-                        lo = playgoundList.get(i).longitude;
-                        lt = playgoundList.get(i).latitude;
-                        Log.d("aaa", "onMapReady:"+lt);
-                        gaza1 = new LatLng(Integer.parseInt(lt), Integer.parseInt(lo));
-                        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title(playgoundList.get(i).playgoundName));
-                        myGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(gaza1));
+                LatLng unRemovable = new LatLng(31.506055035497482, 34.46641396462059);
+                myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(unRemovable, 11));
+                myGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(unRemovable));
+
+                for (int i = 0; i < playgoundList.size(); i++) {
+//                    lo = playgoundList.get(i).longitude;
+//                    lt = playgoundList.get(i).latitude;
+//                    Log.d("aaa", "onMapReady:" + lt);
+
+                    try {
+                        gaza1 = new LatLng(Double.parseDouble(playgoundList.get(i).longitude), Double.parseDouble(playgoundList.get(i).latitude));
+                        marker = myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title(playgoundList.get(i).playgoundName));
+//                        markers.add(marker);
+                    } catch (NumberFormatException exception) {
+                        Toast.makeText(PlaygroundReservationActivity.this, "" + exception, Toast.LENGTH_SHORT).show();
                     }
 
+
+                    int finalI = i;
+                    myGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                        @Override
+                        public boolean onMarkerClick(@NonNull Marker marker) {
+                            Intent intent = new Intent(getApplicationContext(), DatasActivity.class);
+//                            marker.getId();
+
+                            intent.putExtra("id", playgoundList.get(finalI).id);
+//                            startActivity(intent);
+                            Toast.makeText(PlaygroundReservationActivity.this, "Title must be Showed"+playgoundList.get(finalI).id, Toast.LENGTH_SHORT).show();
+                            return false;
+                        }
+                    });
+
+
+
+                    myGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                        @Override
+                        public void onMapClick(@NonNull LatLng latLng) {
+                                // Launch the new activity with marker ID
+//                                Intent intent = new Intent(getApplicationContext(), DatasActivity.class);
+//                                marker.getId();
+
+//                                intent.putExtra("id", playgoundList.get(finalI).id);
+//                                startActivity(intent);
+//                            if (marker != null) {
+//                            }
+                            marker = null;
+                        }
+                    });
+
                 }
 
-                @Override
-                public void onFailure(String message) {
+            }
 
-                }
-            });
-
-
-
-            myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gaza1, 11));
-
-//        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title("Yarmouk Stadium"));
-
-        myGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
-            public boolean onMarkerClick(@NonNull Marker marker) {
+            public void onFailure(String message) {
 
-                startActivity(new Intent(getApplicationContext(), DatasActivity.class));
-                return false;
             }
         });
+
+        binding.locations.setOnClickListener(v -> {
+            for (Marker marker1 : markers){
+                String title = marker1.getTitle();
+                Toast.makeText(this, ""+title, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+//        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title("Yarmouk Stadium"));
 
 
         // Request location permission if not granted
