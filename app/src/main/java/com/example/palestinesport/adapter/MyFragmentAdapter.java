@@ -22,9 +22,9 @@ public class MyFragmentAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         if (position == 1){
-            return new StadiumDataFragment1();
+            return new StadiumDataFragment2();
         }
-        return new StadiumDataFragment2();
+        return new StadiumDataFragment1();
     }
 
     @Override

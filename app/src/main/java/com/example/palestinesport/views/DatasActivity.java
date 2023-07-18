@@ -13,8 +13,9 @@ import com.example.palestinesport.databinding.ActivityDatasBinding;
 public class DatasActivity extends AppCompatActivity {
 
     ActivityDatasBinding binding;
-    MyFragmentAdapter adapter ;
+    MyFragmentAdapter adapter;
     Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +26,12 @@ public class DatasActivity extends AppCompatActivity {
 
         binding.pager.setAdapter(adapter);
 
+        intent = new Intent();
+        int id = intent.getIntExtra("id", 00);
+        if (intent.hasExtra("id")) {
+            Toast.makeText(this, "" + id, Toast.LENGTH_SHORT).show();
+        }
 
-
-       // binding.pager.addItemDecoration(R.layout.fragment_stadium_data1,1);
+        // binding.pager.addItemDecoration(R.layout.fragment_stadium_data1,1);
     }
 }

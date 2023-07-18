@@ -103,15 +103,24 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
             myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
         }
 
-//        myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title("Yarmouk Stadium"));
 
         myGoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
 
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
-
-                startActivity(new Intent(getApplicationContext(), DatasActivity.class));
+                Intent intent = new Intent(getApplicationContext(), DatasActivity.class);
+                intent.putExtra("id",5);
+                startActivity(intent);
                 return false;
+            }
+        });
+
+        myGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(@NonNull LatLng latLng) {
+                Intent intent = new Intent(getApplicationContext(), DatasActivity.class);
+                intent.putExtra("id",5);
+                startActivity(intent);
             }
         });
 
