@@ -1,5 +1,6 @@
 package com.example.palestinesport.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,9 +11,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.palestinesport.R;
+import com.example.palestinesport.databinding.FragmentStadiumData1Binding;
 
 public class StadiumDataFragment1 extends Fragment {
 
+    FragmentStadiumData1Binding binding;
+    Intent intent;
     public StadiumDataFragment1() {
         // Required empty public constructor
     }
@@ -21,6 +25,8 @@ public class StadiumDataFragment1 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = FragmentStadiumData1Binding.inflate(inflater,container,false);
+//        intent = new Intent();
 
         if (getActivity() != null) {
             int id = getActivity().getIntent().getIntExtra("id", 00);
@@ -28,8 +34,12 @@ public class StadiumDataFragment1 extends Fragment {
             Toast.makeText(getContext(), "" + id, Toast.LENGTH_SHORT).show();
         }
 
+        String name = getActivity().getIntent().getStringExtra("playgroundName");
+            binding.txtPlaygroundName.setText(name);
+
+
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stadium_data1, container, false);
+        return binding.getRoot();
     }
 }

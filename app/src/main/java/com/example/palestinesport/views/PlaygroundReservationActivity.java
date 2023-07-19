@@ -99,7 +99,6 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 
 
         if (gaza1 != null) {
-
             myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gaza1, 11));
         }
         if (gaza1 == null) {
@@ -112,21 +111,19 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
-//                int index = playgoundList.indexOf(marker);
-//                Intent intent = new Intent(getApplicationContext(), DatasActivity.class);
-//                        Toast.makeText(PlaygroundReservationActivity.this, "" + playgoundList.get(index).id, Toast.LENGTH_SHORT).show();
-//
-//                        intent.putExtra("id", playgoundList.get(index).id);
 
-//                int index = markers.indexOf(marker);
-//                if (index != -1) {
-//                    Toast.makeText(PlaygroundReservationActivity.this, "Clicked on playground with id: " + playgoundList.get(index).id, Toast.LENGTH_SHORT).show();
-//                    Playgound playground = playgoundList.get(index);
-//                    int playgroundId = playground.id;
-//
-//                }
+                Intent intent = new Intent(getApplicationContext(), DatasActivity.class);
+                String playgroundName = marker.getTitle();
 
-//                startActivity(intent);
+                for (Playgound playground : playgoundList) {
+                    if (playground.playgoundName.equals(playgroundName)) {
+                        int playgroundId = playground.id;
+                        // TODO: Use the playgroundId as needed.
+                        intent.putExtra("id", playgroundId);
+                        startActivity(intent);
+                        break;
+                    }
+                }
                 return false;
             }
         });
