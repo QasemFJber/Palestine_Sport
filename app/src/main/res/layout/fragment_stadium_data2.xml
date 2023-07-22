@@ -34,7 +34,7 @@
             android:textSize="@dimen/_18ssp" />
 
         <TextView
-            android:id="@+id/text_team2"
+            android:id="@+id/txt_workHour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -43,76 +43,6 @@
             android:textSize="@dimen/_16ssp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-
-        android:background="@drawable/sh_card"
-        android:gravity="end"
-        android:orientation="vertical"
-        android:padding="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="غير متاح :"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_18ssp" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2:00 - 5:00"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_16ssp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_15sdp"
-        android:layout_marginEnd="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/sh_card"
-        android:gravity="end"
-        android:orientation="vertical"
-        android:padding="@dimen/_10sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="متاح :"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_18ssp" />
-
-        <TextView
-            android:id="@+id/text_match_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="11:00 - 2:00"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_16ssp" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -127,7 +57,7 @@
         android:padding="@dimen/_10sdp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
 
         <TextView
@@ -140,7 +70,7 @@
             android:textSize="@dimen/_18ssp" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/txt_coordinatorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -175,7 +105,7 @@
             android:textSize="@dimen/_18ssp" />
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/txt_coordinatorPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
