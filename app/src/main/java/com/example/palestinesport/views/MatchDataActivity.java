@@ -45,6 +45,7 @@ public class MatchDataActivity extends AppCompatActivity {
                     binding.tvTeamName2.setText(team2);
                     binding.tvLeague.setText(league);
 
+
                 }
                 Toast.makeText(MatchDataActivity.this, ""+id, Toast.LENGTH_SHORT).show();
 
