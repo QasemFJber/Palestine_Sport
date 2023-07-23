@@ -59,7 +59,7 @@ public class MatchScheduleActivity extends AppCompatActivity implements ItemOnCl
         controller.getAllMatches(new ListCallback<Matchas>() {
             @Override
             public void onSuccess(List<Matchas> list) {
-                Toast.makeText(MatchScheduleActivity.this, ""+binding.tabDay.getTabMode(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MatchScheduleActivity.this, ""+binding.tabDay.getTabMode(), Toast.LENGTH_SHORT).show();
                 //if ()
 
                 String selectedDay = "السبت";
@@ -68,7 +68,7 @@ public class MatchScheduleActivity extends AppCompatActivity implements ItemOnCl
                         // تحقق من أن اليوم يتطابق مع اليوم المحدد
                         // يمكنك استخدام الفرق المتعلقة باليوم المحدد كما تريد
                         matchas.clear();
-                        Toast.makeText(MatchScheduleActivity.this, ""+Collections.singleton(matchas1).size(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MatchScheduleActivity.this, ""+Collections.singleton(matchas1).size(), Toast.LENGTH_SHORT).show();
                         matchas.addAll(Collections.singleton(matchas1));
                         adapter.notifyDataSetChanged();
                     }else {
@@ -92,7 +92,7 @@ public class MatchScheduleActivity extends AppCompatActivity implements ItemOnCl
         binding.tabDay.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                Toast.makeText(MatchScheduleActivity.this, ""+ tab.getText().toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MatchScheduleActivity.this, ""+ tab.getText().toString(), Toast.LENGTH_SHORT).show();
                 //tab.getText().toString();
                 matchas.clear();
 
@@ -107,12 +107,14 @@ public class MatchScheduleActivity extends AppCompatActivity implements ItemOnCl
                                 if (matchas1.matchDay.equals(selectedDay)) {
                                     // تحقق من أن اليوم يتطابق مع اليوم المحدد
                                     // يمكنك استخدام الفرق المتعلقة باليوم المحدد كما تريد
+                                    binding.recMatch.setVisibility(View.VISIBLE);
                                     matchas.clear();
-                                    Toast.makeText(MatchScheduleActivity.this, ""+Collections.singleton(matchas1).size(), Toast.LENGTH_SHORT).show();
+                                   // Toast.makeText(MatchScheduleActivity.this, ""+Collections.singleton(matchas1).size(), Toast.LENGTH_SHORT).show();
                                     matchas.addAll(Collections.singleton(matchas1));
                                     adapter.notifyDataSetChanged();
                                 }else {
                                     matchas.clear();
+                                    binding.recMatch.setVisibility(View.GONE);
                                 }
 
                         }

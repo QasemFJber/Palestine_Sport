@@ -30,7 +30,18 @@ public class MatchDataActivity extends AppCompatActivity {
             @Override
             public void onSuccess(List<Matchas> list) {
 
-                Toast.makeText(MatchDataActivity.this, ""+list.size(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MatchDataActivity.this, ""+list.size(), Toast.LENGTH_SHORT).show();
+
+                binding.tvTeamName1.setText(list.get(0).team1);
+                binding.tvTeamName2.setText(list.get(0).team2);
+                binding.tvCountdown.setText(list.get(0).matchTime);
+                binding.tvTimer.setText(String.valueOf(list.get(0).matchDate));
+                binding.tvMatchTime.setText(String.valueOf(list.get(0).matchDate));
+                binding.tvLeague.setText(list.get(0).league);
+                binding.tvLeagueTour.setText(list.get(0).round);
+                binding.tvRefereeName.setText(list.get(0).refree);
+                binding.tvPitch.setText(list.get(0).playgropund.get(0).playgoundName);
+                binding.tvResult.setText(list.get(0).preMatchScore);
 
             }
 

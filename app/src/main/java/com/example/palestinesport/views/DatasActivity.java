@@ -41,27 +41,27 @@ public class DatasActivity extends AppCompatActivity {
             Toast.makeText(this, "" + id, Toast.LENGTH_SHORT).show();
         }
 
-//        controller.getPlaygroundDetail(String.valueOf(id), new ListCallback<Playgound>() {
-//            @Override
-//            public void onSuccess(List<Playgound> list) {
-//                for (int i = 0; i < list.size(); i++) {
-//                    playgroundName = list.get(i).playgoundName;
-//                    playgroundType = list.get(i).playgoundType;
-//                    playgroundAddress = list.get(i).playgoundAddress;
-//                    hourPrice = list.get(i).hourePrice;
-//
-//                    intent.putExtra("playgroundName",playgroundName);
-//                    intent.putExtra("playgroundType",playgroundType);
-//                    intent.putExtra("playgroundAddress",playgroundAddress);
-//                    intent.putExtra("hourPrice",hourPrice);
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(String message) {
-//
-//            }
-//        });
+        controller.getPlaygroundDetail(String.valueOf(id), new ListCallback<Playgound>() {
+            @Override
+            public void onSuccess(List<Playgound> list) {
+                for (int i = 0; i < list.size(); i++) {
+                    playgroundName = list.get(i).playgoundName;
+                    playgroundType = list.get(i).playgoundType;
+                    playgroundAddress = list.get(i).playgoundAddress;
+                    hourPrice = list.get(i).hourePrice;
+
+                    intent.putExtra("playgroundName",playgroundName);
+                    intent.putExtra("playgroundType",playgroundType);
+                    intent.putExtra("playgroundAddress",playgroundAddress);
+                    intent.putExtra("hourPrice",hourPrice);
+                }
+            }
+
+            @Override
+            public void onFailure(String message) {
+
+            }
+        });
 
         // binding.pager.addItemDecoration(R.layout.fragment_stadium_data1,1);
     }

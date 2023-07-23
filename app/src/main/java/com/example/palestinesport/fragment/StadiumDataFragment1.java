@@ -42,6 +42,9 @@ public class StadiumDataFragment1 extends Fragment {
         controller.getPlaygroundDetail(String.valueOf(id), new ListCallback<Playgound>() {
             @Override
             public void onSuccess(List<Playgound> list) {
+
+
+
                 for (int i = 0; i < list.size(); i++) {
                     playgroundName = list.get(i).playgoundName;
                     playgroundType = list.get(i).playgoundType;
