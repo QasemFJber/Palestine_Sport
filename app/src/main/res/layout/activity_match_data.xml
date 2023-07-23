@@ -193,7 +193,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_league" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/text_coordinator_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="الحكم:"
@@ -213,8 +213,8 @@
         android:text="محمد احمد"
         android:textColor="@color/white"
         android:textSize="@dimen/_15ssp"
-        app:layout_constraintEnd_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintEnd_toEndOf="@+id/text_coordinator_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_coordinator_name" />
 
 
     <TextView
