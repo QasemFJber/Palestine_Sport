@@ -41,6 +41,8 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
     String lo;
     LatLng gaza1;
     List<Playgound> playgoundList = new ArrayList<>();
+
+    List<MarkerOptions> markers;
     PlaygoundController controller = new PlaygoundController();
 
     ActivityPlaygroundReservationBinding binding;
@@ -75,13 +77,15 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
             public void onSuccess(List<Playgound> list) {
                 // Log.d("TAGAA", "onSuccess: "+list);
                 playgoundList.addAll(list);
-
-                for (int i = 0; 0 < playgoundList.size(); i++) {
+                markers = new ArrayList<>();
+                for (int i = 0; i < playgoundList.size(); i++) {
                     lo = playgoundList.get(i).longitude;
                     lt = playgoundList.get(i).latitude;
                     Log.d("aaa", "onMapReady:" + lt);
-                    gaza1 = new LatLng(Integer.parseInt(lt), Integer.parseInt(lo));
-                    myGoogleMap.addMarker(new MarkerOptions().position(gaza1).title(playgoundList.get(i).playgoundName));
+                    gaza1 = new LatLng(Double.parseDouble(lo), Double.parseDouble(lt));
+                    MarkerOptions markerOptions = new MarkerOptions().position(gaza1).title(playgoundList.get(i).playgoundName);
+                    myGoogleMap.addMarker(markerOptions);
+                    markers.add(markerOptions);
                     myGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(gaza1));
                 }
 
@@ -95,11 +99,10 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 
 
         if (gaza1 != null) {
-
             myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(gaza1, 11));
         }
-        if (gaza1 == null){
-            LatLng latLng = new LatLng(31.515573507377145,34.44048516931093);
+        if (gaza1 == null) {
+            LatLng latLng = new LatLng(31.515573507377145, 34.44048516931093);
             myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 11));
         }
 
@@ -108,21 +111,31 @@ public class PlaygroundReservationActivity extends AppCompatActivity implements 
 
             @Override
             public boolean onMarkerClick(@NonNull Marker marker) {
+
                 Intent intent = new Intent(getApplicationContext(), DatasActivity.class);
-                intent.putExtra("id",5);
-                startActivity(intent);
+                String playgroundName = marker.getTitle();
+
+                for (Playgound playground : playgoundList) {
+                    if (playground.playgoundName.equals(playgroundName)) {
+                        int playgroundId = playground.id;
+                        // TODO: Use the playgroundId as needed.
+                        intent.putExtra("id", playgroundId);
+                        startActivity(intent);
+                        break;
+                    }
+                }
                 return false;
             }
         });
 
-        myGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(@NonNull LatLng latLng) {
-                Intent intent = new Intent(getApplicationContext(), DatasActivity.class);
-                intent.putExtra("id",5);
-                startActivity(intent);
-            }
-        });
+//        myGoogleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+//            @Override
+//            public void onMapClick(@NonNull LatLng latLng) {
+//                Intent intent = new Intent(getApplicationContext(), DatasActivity.class);
+//                intent.putExtra("id",5);
+//                startActivity(intent);
+//            }
+//        });
 
 
         // Request location permission if not granted

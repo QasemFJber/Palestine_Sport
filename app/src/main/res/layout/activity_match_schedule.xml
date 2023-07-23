@@ -55,6 +55,11 @@
             app:tabIndicator="@drawable/tab_indicator"
             android:layout_height="wrap_content"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_match"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
         <!--<ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -113,16 +118,16 @@
 
 
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/pager_Match"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="2"
-            android:layout_marginStart="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
-             />
+<!--        <androidx.viewpager2.widget.ViewPager2-->
+<!--            android:id="@+id/pager_Match"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_weight="2"-->
+<!--            android:layout_marginStart="@dimen/_5sdp"-->
+<!--            android:layout_marginTop="@dimen/_10sdp"-->
+<!--            android:layout_marginEnd="@dimen/_5sdp"-->
+<!--             />-->
 
 
     </LinearLayout>
